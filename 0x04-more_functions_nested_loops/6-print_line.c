@@ -8,12 +8,12 @@
  */
 void print_line(int n)
 {
-	int i = 0;
+	int i = 48;
 
-	if (n > 0)
+	if (n > 48)
 	{
 		for (; i < n; i++)
-			_putchar('_');
+			_putchar(95);
 	}
 	_putchar('\n');
 }
