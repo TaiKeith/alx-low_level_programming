@@ -7,17 +7,21 @@
  */
 char *rot13(char *s)
 {
-	int i;
-	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char storel[] = "nopqrstuvwxyzabcdefghijklm";
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i] != '\0')
 	{
-		if ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
+		while ((s[i] >= 'a' && s[i] <= 'z') ||
+				(s[i] >= 'A' && s[i] <= 'Z'))
 		{
-			s[i] = (s[i] - 65 > 25) ?
-				storel[s[i] - 97] : storeh[s[i] - 65];
+			if ((s[i] >= 'a' && s[i] <= 'm') ||
+					(s[i] >= 'A' && s[i] <= 'M'))
+				s[i] += 13;
+			else
+				s[i] -= 13;
+			i++;
 		}
+		i++;
 	}
 	return (s);
 }
