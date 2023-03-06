@@ -10,6 +10,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	char *check;
+
 	check = accept;
 
 	while (*s)
