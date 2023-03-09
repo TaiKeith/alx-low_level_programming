@@ -9,3 +9,4 @@ int helper(int c, int i);
 int is_prime_number(int n);
 int is_divisible(int num, int div);
 int is_palindrome(char *s);
+int wildcmp(char *s1, char *s2);
