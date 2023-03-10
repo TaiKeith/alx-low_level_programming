@@ -8,11 +8,11 @@
  * Return: 0
  */
 
-int main(int argc, char *argv[])
+int main(int argc _attribute_((unused)), char *argv[])
 {
 	(void) argc;
 
-	_putchar("%s\n", argv[0]);
+	printf("%s\n", argv[0]);
 
 	return (0);
 }
