@@ -10,18 +10,18 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *k;
-	unsigned int i;
+	unsigned int i = 0;
+	char *space;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	k = malloc(nmemb * size);
-	if (k == NULL)
+	space = malloc(nmemb * size);
+	if (space == NULL)
 		return (NULL);
 
-	for (i = 0; i < nmemb; i++)
-		k[i] = 0;
+	for (; i < nmemb * size; i++)
+		*(space + i) = 0;
 
-	return (k);
+	return (space);
 }
