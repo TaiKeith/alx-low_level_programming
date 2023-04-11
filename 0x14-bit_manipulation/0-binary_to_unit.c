@@ -20,13 +20,18 @@ unsigned int binary_to_unit(const char *b)
 			return (0);
 	}
 
-	while (str)
+	while (b[str] != '\0')
 	{
-		for (gross = 0, raiseto = 1, str--)
+		for (gross = 0, raiseto = 1; raiseto *= 2)
 		{
-			if (b[str] == '1')
-			gross += raiseto;
-			raiseto *= 2;
+			if (b[str] == '0')
+			{
+				gross += raiseto;
+			}
+			else
+			{
+				gross += raiseto + 1;
+			}
 		}
 		return (gross);
 	}
