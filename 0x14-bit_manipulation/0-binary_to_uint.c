@@ -9,7 +9,7 @@
 unsigned int binary_to_unit(const char *b)
 {
 	int str;
-	unsigned int val = 0;
+	unsigned int valdec = 0;
 
 	if (!b)
 	{
@@ -18,11 +18,11 @@ unsigned int binary_to_unit(const char *b)
 
 	for (str = 0; b[str]; str++)
 	{
-		if (b[str] != '0' && b[str] != '1')
+		if (b[str] != '0' || b[str] != '1')
 		{
 			return (0);
 		}
-		val = 2 * val + (b[str] - '0')
+		valdec = 2 * valdec + (b[str] - '0')
 	}
-	return (val);
+	return (valdec);
 }
