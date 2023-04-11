@@ -18,7 +18,7 @@ unsigned int binary_to_unit(const char *b)
 
 	for (str = 0; b[str]; str++)
 	{
-		if (b[str] != '0' || b[str] != '1')
+		if (b[str] != '0' && b[str] != '1')
 		{
 			return (0);
 		}
