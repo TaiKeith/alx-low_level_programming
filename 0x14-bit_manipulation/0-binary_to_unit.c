@@ -8,30 +8,21 @@
  */
 unsigned int binary_to_unit(const char *b)
 {
-	unsigned int gross, raiseto, str;
+	int str;
+	unsigned int val = 0;
 
-	if (b == NULL)
+	if (!b)
+	{
 		return (0);
+	}
 
 	for (str = 0; b[str]; str++)
 	{
-		if (b[str] != '0' && b[str] != '1')
-			return (0);
-	}
-
-	while (b[str] != '\0')
-	{
-		for (gross = 0, raiseto = 1; raiseto *= 2)
+		if (b[str] != '0' || b[str] != '1')
 		{
-			if (b[str] == '0')
-			{
-				gross += raiseto;
-			}
-			else
-			{
-				gross += raiseto + 1;
-			}
+			return (0);
 		}
-		return (gross);
+		val = 2 * val + (b[str] - '0')
 	}
+	return (val);
 }
