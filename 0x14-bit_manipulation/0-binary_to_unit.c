@@ -9,12 +9,12 @@
  */
 unsigned int binary_to_unit(const char *b)
 {
-	unsigned int gross = 0, raiseto = 1, str = 0;
+	unsigned int gross, raiseto, str;
 
 	if (b == NULL)
 		return (0);
 
-	for (; b[str]; str++)
+	for (str = 0; b[str]; str++)
 	{
 		if (b[str] != '0' && b[str] != '1')
 			return (0);
@@ -22,10 +22,12 @@ unsigned int binary_to_unit(const char *b)
 
 	while (str)
 	{
-		if (b[str] == '1')
+		for (gross = 0, raiseto = 1, str--)
+		{
+			if (b[str] == '1')
 			gross += raiseto;
-		raiseto *= 2;
-		str--;
+			raiseto *= 2;
+		}
+		return (gross);
 	}
-	return (gross);
 }
