@@ -10,32 +10,32 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buffer;
-	ssize_t fd, rc, wc;
+	int fd;
+	ssize_t rc, wc;
+	char *temp;
 
 	if (filename == NULL)
 		return (0);
 
-	fd = open(filename, 0_RDONLY);
+	fd = open(filename, O_RDWR);
 	if (fd == -1)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
+	temp = malloc(sizeof(char) * letters);
+	if (temp == NULL)
 	{
-		free(buffer);
+		free(temp);
 		return (0);
 	}
-
-	rc = read(fd, buffer, letters);
+	rc = read(fd, temp, letters);
 	if (rc == -1)
 		return (0);
 
-	wc = write(STDOUT_FILENO, buffer, rc);
+	wc = write(STDOUT_FILENO, temp, rc);
 	if (wc == -1 || rc != wc)
 		return (0);
+	free(temp);
 
-	free(buffer);
 	close(fd);
 	return (wc);
 }
