@@ -8,27 +8,22 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int gross = 0, raiseto = 1;
-	int str;
+	unsigned int gross, raiseto;
+	int len;
 
 	if (b == NULL)
 		return (0);
 
-	while (b[str])
-		str++;
-
-	while (str)
+	for (len = 0; b[len]; len++)
 	{
-		if (b[str - 1] != '0' && b[str - 1] != '1')
-		{
+		if (b[len] != '0' && b[len] != '1')
 			return (0);
-		}
-		if (b[str - 1] == '1')
-		{
+	}
+
+	for (raiseto = 1, gross = 0, len--; len >= 0; len--, raiseto *= 2)
+	{
+		if (b[len] == '1')
 			gross += raiseto;
-		}
-		raiseto *= 2;
-		str--;
 	}
 	return (gross);
 }
