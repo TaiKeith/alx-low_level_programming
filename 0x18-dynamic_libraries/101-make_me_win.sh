@@ -1,3 +1,3 @@
 #!/bin/bash
-gcc -shared -o libmytest.so mytest.o
-LD_PRELOAD=/$PWD/libmytest.so ./9 8 10 24 75 9
+wget -P /tmp https://github.com/TaiKeith/alx-low_level_programming/raw/master/0x18-dynamic_libraries/mylibmytest.so
+export LD_PRELOAD=/tmp/libmytest.so
