@@ -18,7 +18,3 @@ oclean:
 fclean: clean oclean
 
 re: oclean all
-
-ifeq ($(wildcard m.h),)
-	$(error "Error: Header file m.h not found!")
-endif
